@@ -26,4 +26,9 @@ mod tests {
         fn prime_factors_of_four() {
                 assert_eq!(prime_factors(4), [2, 2]);
         }
+
+        #[test]
+        fn prime_factors_of_nine() {
+                assert_eq!(prime_factors(9), [3, 3]);
+        }
 }
