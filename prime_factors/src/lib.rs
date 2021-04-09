@@ -1,4 +1,4 @@
-pub fn prime_factors(num: i32) {}
+pub fn prime_factors(num: i32) -> Vec<i32> {}
 
 #[cfg(test)]
 mod tests {
