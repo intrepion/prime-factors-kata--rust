@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
+        #[test]
+        fn prime_factors_of_two() {
+                assert_eq!(prime_factors(2), [2]);
+        }
 }
