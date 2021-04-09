@@ -1,5 +1,5 @@
 pub fn prime_factors(num: i32) -> Vec<i32> {
-        vec![2]
+        vec![num]
 }
 
 #[cfg(test)]
