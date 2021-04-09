@@ -1,12 +1,31 @@
-pub fn prime_factors(num: i32) -> Vec<i32> {
-        for candidate in 2..num {
-                if num % candidate == 0 {
-                        let mut answer = vec![candidate];
-                        answer.extend(&prime_factors(num / candidate));
-                        return answer;
-                }
+pub struct PrimeFactorsIterator {
+        num: i32,
+        candidate: i32,
+}
+
+impl PrimeFactorsIterator {
+        pub fn new(num: i32) -> PrimeFactorsIterator {
+                PrimeFactorsIterator { num, candidate: 2 }
         }
-        vec![num]
+}
+
+impl Iterator for PrimeFactorsIterator {
+        type Item = i32;
+
+        fn next(&mut self) -> Option<i32> {
+                while self.num > 1 {
+                        while self.num % self.candidate == 0 {
+                                self.num /= self.candidate;
+                                return Some(self.candidate);
+                        }
+                        self.candidate += 1;
+                }
+                None
+        }
+}
+
+pub fn prime_factors(num: i32) -> Vec<i32> {
+        PrimeFactorsIterator::new(num).collect()
 }
 
 #[cfg(test)]
