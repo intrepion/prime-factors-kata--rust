@@ -1,11 +1,20 @@
-pub fn prime_factors(num: i32) -> Vec<i32> {
-        if num % 2 == 0 && num > 2 {
-                let mut answer = vec![2];
-                answer.extend(&prime_factors(num / 2));
-                answer
-        } else {
-                vec![num]
-        }
+pub fn prime_factors(mut num: i32) -> Vec<i32> {
+        let mut answer = vec![];
+
+        while num != 1 {
+                let mut candidate = 2;
+
+                while candidate <= num {
+                        if num % candidate == 0 {
+                                answer.push(candidate);
+                                num = num / candidate;
+                                break;
+                        } else {
+                                candidate += 1;
+                        }
+                }
+          }
+          answer
 }
 
 #[cfg(test)]
