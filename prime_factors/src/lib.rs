@@ -1,3 +1,5 @@
+pub fn prime_factors() {}
+
 #[cfg(test)]
 mod tests {
         #[test]
